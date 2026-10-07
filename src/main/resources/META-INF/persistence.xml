@@ -7,7 +7,7 @@
     <persistence-unit name="teleExpertisePU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!-- Les entités seront ajoutées ici à l'étape 2 -->
+        <!-- Les entités ici -->
 
         <class>com.telexpertise.model.Utilisateur</class>
         <class>com.telexpertise.model.Patient</class>
