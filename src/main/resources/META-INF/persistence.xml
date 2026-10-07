@@ -12,6 +12,8 @@
         <class>com.telexpertise.model.Utilisateur</class>
         <class>com.telexpertise.model.Patient</class>
         <class>com.telexpertise.model.SignesVitaux</class>
+        <class>com.telexpertise.model.Specialiste</class>
+        <class>com.telexpertise.model.Creneau</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
