@@ -33,7 +33,8 @@
     <%-- Patient inconnu --%>
     <c:if test="${trouve == false}">
         <p style="color: orange;">Aucun patient avec ce numéro.</p>
-        <p>(Création du nouveau patient : étape suivante)</p>
+        <p><a href="${pageContext.request.contextPath}/infirmier/nouveau-patient?numeroSecu=${numeroSecu}">
+            Créer un nouveau patient</a></p>
     </c:if>
 </body>
 </html>
