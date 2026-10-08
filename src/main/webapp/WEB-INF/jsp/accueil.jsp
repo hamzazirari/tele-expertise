@@ -10,9 +10,9 @@
     <h2>Bienvenue ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom}</h2>
     <p>Rôle : ${sessionScope.utilisateur.role}</p>
 
-    <c:if test="${sessionScope.utilisateur.role == 'INFIRMIER'}">
-        <p>Espace infirmier (à venir)</p>
-    </c:if>
+   <c:if test="${sessionScope.utilisateur.role == 'INFIRMIER'}">
+       <p><a href="${pageContext.request.contextPath}/infirmier/accueil-patient">Accueillir un patient</a></p>
+   </c:if>
 
     <c:if test="${sessionScope.utilisateur.role == 'GENERALISTE'}">
         <p>Espace généraliste (à venir)</p>
