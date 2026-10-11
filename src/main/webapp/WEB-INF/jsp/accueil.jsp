@@ -17,6 +17,7 @@
 
 <c:if test="${sessionScope.utilisateur.role == 'GENERALISTE'}">
     <p><a href="${pageContext.request.contextPath}/generaliste/file-attente">File d'attente</a></p>
+    <p><a href="${pageContext.request.contextPath}/generaliste/consultations">Mes consultations</a></p>
 </c:if>
 
     <c:if test="${sessionScope.utilisateur.role == 'SPECIALISTE'}">
