@@ -1,0 +1,30 @@
+package com.telexpertise.servlet;
+
+import com.telexpertise.dao.FileAttenteDAO;
+import com.telexpertise.model.FileAttente;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+@WebServlet("/generaliste/file-attente")
+public class FileAttenteServlet extends HttpServlet {
+
+    private FileAttenteDAO fileAttenteDAO = new FileAttenteDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        // Patients en attente aujourd'hui, du plus ancien au plus récent
+        List<FileAttente> liste = fileAttenteDAO.findByDate(LocalDate.now());
+
+        request.setAttribute("liste", liste);
+        request.getRequestDispatcher("/WEB-INF/jsp/generaliste/file-attente.jsp")
+                .forward(request, response);
+    }
+}
