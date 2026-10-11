@@ -5,6 +5,7 @@ import com.telexpertise.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import java.util.List;
 import com.telexpertise.model.Utilisateur;
+import com.telexpertise.enums.StatutConsultation;
 
 public class ConsultationDAO {
 
@@ -68,5 +69,12 @@ public class ConsultationDAO {
         } finally {
             em.close();
         }
+    }
+
+    // Les consultations d'un généraliste, filtrées par statut (Stream API)
+    public List<Consultation> findByGeneralisteEtStatut(Utilisateur generaliste, StatutConsultation statut) {
+        return findByGeneraliste(generaliste).stream()
+                .filter(c -> c.getStatut() == statut)
+                .collect(java.util.stream.Collectors.toList());
     }
 }
