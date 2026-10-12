@@ -9,19 +9,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import com.telexpertise.service.FileAttenteService;
 import java.util.List;
 
 @WebServlet("/infirmier/liste-patients")
 public class ListePatientsServlet extends HttpServlet {
 
-    private FileAttenteDAO fileAttenteDAO = new FileAttenteDAO();
+    private FileAttenteService fileAttenteService = new FileAttenteService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         // Les patients enregistrés aujourd'hui, triés par heure d'arrivée
-        List<FileAttente> liste = fileAttenteDAO.findByDate(LocalDate.now());
+        List<FileAttente> liste = fileAttenteService.patientsDuJour();
 
         request.setAttribute("liste", liste);
         request.getRequestDispatcher("/WEB-INF/jsp/infirmier/liste-patients.jsp")
