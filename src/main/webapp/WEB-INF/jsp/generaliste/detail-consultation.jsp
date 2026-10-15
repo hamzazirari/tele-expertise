@@ -29,6 +29,11 @@
         <button type="submit">Clôturer</button>
     </form>
 
-    <p>(Bouton « Demander avis spécialiste » : étape suivante)</p>
+<h3>Besoin d'un spécialiste ?</h3>
+<form action="${pageContext.request.contextPath}/generaliste/choix-specialiste" method="post">
+    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
+    <input type="hidden" name="id" value="${consultation.id}">
+    <button type="submit">Demander avis spécialiste</button>
+</form>
 </body>
 </html>

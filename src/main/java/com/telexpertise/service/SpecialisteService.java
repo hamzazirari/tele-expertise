@@ -13,4 +13,8 @@ public class SpecialisteService {
     public List<Specialiste> parSpecialite(Specialite specialite) {
         return specialisteDAO.findBySpecialiteTrieParTarif(specialite);
     }
+    public Specialiste trouverParId(Long id) {
+        return specialisteDAO.findById(id);
+    }
+
 }

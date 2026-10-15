@@ -27,8 +27,8 @@
         <p>Allergies : ${patient.allergies}</p>
         <p>Antécédents : ${patient.antecedents}</p>
         <p>Traitements en cours : ${patient.traitementsEnCours}</p>
-        <p>(Saisie des signes vitaux : étape suivante)</p>
-    </c:if>
+<p><a href="${pageContext.request.contextPath}/infirmier/patient-existant?id=${patient.id}">
+    Saisir les signes vitaux et ajouter à la file d'attente</a></p>    </c:if>
 
     <%-- Patient inconnu --%>
     <c:if test="${trouve == false}">
