@@ -25,7 +25,6 @@ public class DemandeExpertiseDAO {
         }
     }
 
-    // Modifier (le spécialiste ajoute son avis et marque TERMINEE)
     public void update(DemandeExpertise demande) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -49,7 +48,6 @@ public class DemandeExpertiseDAO {
         }
     }
 
-    // Toutes les demandes reçues par un spécialiste
     public List<DemandeExpertise> findBySpecialiste(Specialiste specialiste) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -63,7 +61,6 @@ public class DemandeExpertiseDAO {
         }
     }
 
-    // Stream API : filtre par statut et/ou priorité (null = pas de filtre)
     public List<DemandeExpertise> findByFiltres(Specialiste specialiste, StatutDemande statut, Priorite priorite) {
         return findBySpecialiste(specialiste).stream()
                 .filter(d -> statut == null || d.getStatut() == statut)

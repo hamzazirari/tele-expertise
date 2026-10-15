@@ -28,17 +28,14 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String motDePasse = request.getParameter("motDePasse");
 
-        // La vérification est faite par le service
         Utilisateur utilisateur = authService.authentifier(email, motDePasse);
 
         if (utilisateur != null) {
-            // Sécurité : on détruit l'ancienne session avant d'en créer une nouvelle
             HttpSession ancienne = request.getSession(false);
             if (ancienne != null) {
                 ancienne.invalidate();
             }
 
-            // La session reste le travail de la servlet (c'est du web)
             HttpSession session = request.getSession();
             session.setAttribute("utilisateur", utilisateur);
             response.sendRedirect(request.getContextPath() + "/accueil");

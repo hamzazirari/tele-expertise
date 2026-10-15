@@ -19,14 +19,12 @@ public class Utilisateur {
     @Column(unique = true, nullable = false)
     private String email;
 
-    // Sera stocké haché avec BCrypt (jamais en clair)
     @Column(nullable = false)
     private String motDePasse;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    // Constructeur vide obligatoire pour JPA
     public Utilisateur() {
     }
 

@@ -23,17 +23,14 @@ public class AuthFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
 
-        // Le chemin demandé, sans le nom de l'application (ex : "/login")
         String chemin = request.getRequestURI().substring(request.getContextPath().length());
 
-        // 1. Pages libres : login (et fichiers css/js/images s'il y en a)
         if (chemin.equals("/login") || chemin.startsWith("/css/")
                 || chemin.startsWith("/js/") || chemin.startsWith("/images/")) {
             chain.doFilter(request, response);
             return;
         }
 
-        // 2. Vérifier qu'il y a une session avec un utilisateur connecté
         HttpSession session = request.getSession(false);
         Utilisateur utilisateur = null;
         if (session != null) {
@@ -45,7 +42,6 @@ public class AuthFilter implements Filter {
             return;
         }
 
-        // 3. Vérifier le rôle selon l'URL
         Role role = utilisateur.getRole();
 
         if (chemin.startsWith("/infirmier/") && role != Role.INFIRMIER) {
@@ -61,7 +57,6 @@ public class AuthFilter implements Filter {
             return;
         }
 
-        // 4. Tout est bon : on continue vers la servlet
         chain.doFilter(request, response);
     }
 }

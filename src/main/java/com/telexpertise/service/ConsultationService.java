@@ -17,7 +17,6 @@ public class ConsultationService {
     private ConsultationDAO consultationDAO = new ConsultationDAO();
     private FileAttenteDAO fileAttenteDAO = new FileAttenteDAO();
 
-    // US1 : créer la consultation depuis la file d'attente, puis retirer le patient de la file
     public void creerConsultation(Long fileId, Utilisateur generaliste, String motif, String observations) {
         FileAttente file = fileAttenteDAO.findById(fileId);
 
@@ -38,14 +37,12 @@ public class ConsultationService {
         return consultationDAO.findById(id);
     }
 
-    // Consultations ouvertes (pas encore TERMINEE) d'un généraliste
     public List<Consultation> consultationsOuvertes(Utilisateur generaliste) {
         return consultationDAO.findByGeneraliste(generaliste).stream()
                 .filter(c -> c.getStatut() != StatutConsultation.TERMINEE)
                 .collect(Collectors.toList());
     }
 
-    // Scénario A : diagnostic + traitement + clôture
     public void cloturer(Long id, String diagnostic, String traitement) {
         Consultation consultation = consultationDAO.findById(id);
         consultation.setDiagnostic(diagnostic);
@@ -54,7 +51,6 @@ public class ConsultationService {
         consultationDAO.update(consultation);
     }
 
-    // Scénario B : la consultation reste ouverte, en attente de l'avis
     public void demanderAvisSpecialiste(Long id) {
         Consultation consultation = consultationDAO.findById(id);
         consultation.setStatut(StatutConsultation.EN_ATTENTE_AVIS_SPECIALISTE);

@@ -18,13 +18,11 @@ public class Patient {
     @Column(unique = true, nullable = false)
     private String numeroSecuriteSociale;
 
-    // Optionnels
     private String telephone;
     private String adresse;
 
     private String mutuelle;
 
-    // Données médicales
     private String antecedents;
     private String allergies;
     private String traitementsEnCours;

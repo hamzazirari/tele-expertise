@@ -15,7 +15,6 @@ public class DemandeExpertise {
 
     private LocalDateTime dateDemande;
 
-    // Rempli par le généraliste
     private String question;
     private String donneesAnalyses;   // données et analyses fournies
 
@@ -25,21 +24,17 @@ public class DemandeExpertise {
     @Enumerated(EnumType.STRING)
     private StatutDemande statut = StatutDemande.EN_ATTENTE;
 
-    // Rempli par le spécialiste quand il répond
     private String avisMedical;
     private String recommandations;
 
-    // La consultation liée à cette demande
     @OneToOne
     @JoinColumn(name = "consultation_id", nullable = false)
     private Consultation consultation;
 
-    // Le spécialiste choisi
     @ManyToOne
     @JoinColumn(name = "specialiste_id", nullable = false)
     private Specialiste specialiste;
 
-    // Le créneau réservé
     @OneToOne
     @JoinColumn(name = "creneau_id")
     private Creneau creneau;

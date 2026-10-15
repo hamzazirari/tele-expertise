@@ -9,7 +9,6 @@ public class SpecialisteService {
 
     private SpecialisteDAO specialisteDAO = new SpecialisteDAO();
 
-    // Stream API (dans le DAO) : filtre par spécialité + tri par tarif
     public List<Specialiste> parSpecialite(Specialite specialite) {
         return specialisteDAO.findBySpecialiteTrieParTarif(specialite);
     }

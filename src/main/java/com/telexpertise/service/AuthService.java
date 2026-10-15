@@ -8,7 +8,6 @@ public class AuthService {
 
     private UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
 
-    // Retourne l'utilisateur si email + mot de passe sont corrects, sinon null
     public Utilisateur authentifier(String email, String motDePasse) {
         Utilisateur utilisateur = utilisateurDAO.findByEmail(email);
 

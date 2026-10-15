@@ -11,15 +11,12 @@ public class FileAttente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Heure d'arrivée du patient (sert au tri et au filtre par date)
     private LocalDateTime heureArrivee;
 
-    // Le patient qui attend
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    // Les signes vitaux mesurés lors de cet accueil
     @OneToOne
     @JoinColumn(name = "signes_vitaux_id")
     private SignesVitaux signesVitaux;

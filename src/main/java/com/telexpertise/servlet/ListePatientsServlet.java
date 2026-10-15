@@ -21,7 +21,6 @@ public class ListePatientsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Les patients enregistrés aujourd'hui, triés par heure d'arrivée
         List<FileAttente> liste = fileAttenteService.patientsDuJour();
 
         request.setAttribute("liste", liste);

@@ -9,7 +9,6 @@ public class FileAttenteService {
 
     private FileAttenteDAO fileAttenteDAO = new FileAttenteDAO();
 
-    // Patients du jour, triés par heure d'arrivée (Stream API dans le DAO)
     public List<FileAttente> patientsDuJour() {
         return fileAttenteDAO.findByDate(LocalDate.now());
     }

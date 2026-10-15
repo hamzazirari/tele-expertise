@@ -21,7 +21,6 @@ public class DemandeExpertiseServlet extends HttpServlet {
     private CreneauService creneauService = new CreneauService();
     private ExpertiseService expertiseService = new ExpertiseService();
 
-    // Affiche les créneaux du spécialiste + le formulaire
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

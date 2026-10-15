@@ -24,7 +24,6 @@ public class SpecialisteDAO {
         }
     }
 
-    // Modifier le profil (tarif, spécialité)
     public void update(Specialiste specialiste) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -58,7 +57,6 @@ public class SpecialisteDAO {
         }
     }
 
-    // Stream API : filtre par spécialité + tri par tarif (du moins cher au plus cher)
     public List<Specialiste> findBySpecialiteTrieParTarif(Specialite specialite) {
         return findAll().stream()
                 .filter(s -> s.getSpecialite() == specialite)

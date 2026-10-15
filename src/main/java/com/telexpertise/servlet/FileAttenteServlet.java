@@ -21,7 +21,6 @@ public class FileAttenteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Patients en attente aujourd'hui, du plus ancien au plus récent
         List<FileAttente> liste = fileAttenteService.patientsDuJour();
 
         request.setAttribute("liste", liste);

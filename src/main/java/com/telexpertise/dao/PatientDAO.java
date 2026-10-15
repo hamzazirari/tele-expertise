@@ -47,7 +47,6 @@ public class PatientDAO {
         }
     }
 
-    // Chercher par numéro de sécurité sociale (recherche du patient à l'accueil)
     public Patient findByNumeroSecuriteSociale(String numero) {
         EntityManager em = JPAUtil.getEntityManager();
         try {

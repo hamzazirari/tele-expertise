@@ -17,22 +17,18 @@ public class Consultation {
     private String motif;
     private String observations;
 
-    // Remplis seulement en prise en charge directe (scénario A)
     private String diagnostic;
     private String traitement;
 
-    // Coût fixe de la consultation : 150 DH (brief)
     private Double cout = 150.0;
 
     @Enumerated(EnumType.STRING)
     private StatutConsultation statut = StatutConsultation.EN_COURS;
 
-    // Le patient consulté
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    // Le médecin généraliste qui fait la consultation
     @ManyToOne
     @JoinColumn(name = "generaliste_id", nullable = false)
     private Utilisateur generaliste;

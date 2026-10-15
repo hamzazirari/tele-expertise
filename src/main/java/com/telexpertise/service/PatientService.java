@@ -23,18 +23,15 @@ public class PatientService {
         return patientDAO.findById(id);
     }
 
-    // Vrai si un patient avec ce numéro existe déjà
     public boolean existe(String numeroSecu) {
         return patientDAO.findByNumeroSecuriteSociale(numeroSecu) != null;
     }
 
-    // Nouveau patient : crée le dossier, les signes vitaux, puis l'ajoute à la file
     public void creerPatientEtAccueillir(Patient patient, SignesVitaux signes) {
         patientDAO.save(patient);
         accueillir(patient, signes);
     }
 
-    // Patient existant : nouveaux signes vitaux + ajout à la file
     public void accueillir(Patient patient, SignesVitaux signes) {
         signes.setPatient(patient);
         signes.setDateMesure(LocalDateTime.now());

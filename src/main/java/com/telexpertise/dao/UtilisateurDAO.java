@@ -7,7 +7,6 @@ import java.util.List;
 
 public class UtilisateurDAO {
 
-    // Ajouter un utilisateur
     public void save(Utilisateur utilisateur) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -22,7 +21,6 @@ public class UtilisateurDAO {
         }
     }
 
-    // Chercher par id
     public Utilisateur findById(Long id) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -32,7 +30,6 @@ public class UtilisateurDAO {
         }
     }
 
-    // Chercher par email (utile pour le login)
     public Utilisateur findByEmail(String email) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -49,7 +46,6 @@ public class UtilisateurDAO {
         }
     }
 
-    // Liste de tous les utilisateurs
     public List<Utilisateur> findAll() {
         EntityManager em = JPAUtil.getEntityManager();
         try {

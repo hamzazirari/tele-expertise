@@ -22,7 +22,6 @@ public class CreneauDAO {
         }
     }
 
-    // Modifier un créneau (ex : réservé -> INDISPONIBLE, annulé -> DISPONIBLE)
     public void update(Creneau creneau) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -46,7 +45,6 @@ public class CreneauDAO {
         }
     }
 
-    // Tous les créneaux d'un spécialiste, triés par date puis heure
     public List<Creneau> findBySpecialiste(Specialiste specialiste) {
         EntityManager em = JPAUtil.getEntityManager();
         try {

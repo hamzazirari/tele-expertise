@@ -20,7 +20,6 @@ public class SignesVitaux {
 
     private LocalDateTime dateMesure;
 
-    // Plusieurs signes vitaux pour un seul patient
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;

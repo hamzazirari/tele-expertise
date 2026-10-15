@@ -9,10 +9,8 @@ public class Specialiste extends Utilisateur {
     @Enumerated(EnumType.STRING)
     private Specialite specialite;
 
-    // Tarif pour une réservation (en DH)
     private Double tarif;
 
-    // Durée moyenne de consultation : fixe, 30 minutes (brief)
     private Integer dureeConsultation = 30;
 
     public Specialiste() {

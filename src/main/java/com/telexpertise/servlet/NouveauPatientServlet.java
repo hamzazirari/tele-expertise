@@ -57,7 +57,6 @@ public class NouveauPatientServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/infirmier/accueil-patient");
     }
 
-    // Transforme les champs du formulaire en objet SignesVitaux
     private SignesVitaux lireSignes(HttpServletRequest request) {
         SignesVitaux signes = new SignesVitaux();
         signes.setTensionArterielle(request.getParameter("tension"));

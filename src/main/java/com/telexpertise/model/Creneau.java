@@ -20,7 +20,6 @@ public class Creneau {
     @Enumerated(EnumType.STRING)
     private StatutCreneau statut = StatutCreneau.DISPONIBLE;
 
-    // Plusieurs créneaux pour un seul spécialiste
     @ManyToOne
     @JoinColumn(name = "specialiste_id", nullable = false)
     private Specialiste specialiste;

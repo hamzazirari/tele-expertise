@@ -14,10 +14,8 @@ public class ActeTechnique {
     @Enumerated(EnumType.STRING)
     private TypeActe type;
 
-    // Le brief ne donne pas de prix : on le saisit nous-mêmes (en DH)
     private Double prix;
 
-    // La consultation pour laquelle l'acte est réalisé
     @ManyToOne
     @JoinColumn(name = "consultation_id", nullable = false)
     private Consultation consultation;

@@ -57,7 +57,6 @@ public class FileAttenteDAO {
         }
     }
 
-    // Stream API : patients d'une date donnée, triés du plus ancien au plus récent
     public List<FileAttente> findByDate(LocalDate date) {
         return findAll().stream()
                 .filter(f -> f.getHeureArrivee().toLocalDate().equals(date))

@@ -18,13 +18,11 @@ public class ExpertiseService {
     private ConsultationDAO consultationDAO = new ConsultationDAO();
     private CreneauService creneauService = new CreneauService();
 
-    // Retourne false si le créneau n'est plus disponible ou est passé
     public boolean creerDemande(Long consultationId, Specialiste specialiste, Long creneauId,
                                 String question, String donneesAnalyses, Priorite priorite) {
 
         Creneau creneau = creneauService.trouverParId(creneauId);
 
-        // Règle : seulement un créneau disponible et futur
         if (creneau.getStatut() != StatutCreneau.DISPONIBLE || !creneauService.estFutur(creneau)) {
             return false;
         }
@@ -42,11 +40,10 @@ public class ExpertiseService {
         demande.setDateDemande(LocalDateTime.now());
         demandeDAO.save(demande);
 
-        // La consultation reste ouverte, en attente de l'avis
         consultation.setStatut(StatutConsultation.EN_ATTENTE_AVIS_SPECIALISTE);
         consultationDAO.update(consultation);
 
-        // Le créneau est réservé
+        // Le creneau est réservé
         creneauService.reserver(creneau);
 
         return true;

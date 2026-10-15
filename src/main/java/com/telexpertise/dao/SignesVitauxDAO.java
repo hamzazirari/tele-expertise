@@ -8,7 +8,6 @@ import java.util.List;
 
 public class SignesVitauxDAO {
 
-    // Ajouter des signes vitaux
     public void save(SignesVitaux signesVitaux) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -23,7 +22,6 @@ public class SignesVitauxDAO {
         }
     }
 
-    // Chercher par id
     public SignesVitaux findById(Long id) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -33,7 +31,6 @@ public class SignesVitauxDAO {
         }
     }
 
-    // Tous les signes vitaux d'un patient (du plus récent au plus ancien)
     public List<SignesVitaux> findByPatient(Patient patient) {
         EntityManager em = JPAUtil.getEntityManager();
         try {

@@ -23,7 +23,6 @@ public class ConsultationDAO {
         }
     }
 
-    // Modifier (changer le statut, ajouter diagnostic/traitement...)
     public void update(Consultation consultation) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -57,7 +56,6 @@ public class ConsultationDAO {
         }
     }
 
-    // Les consultations d'un généraliste
     public List<Consultation> findByGeneraliste(Utilisateur generaliste) {
         EntityManager em = JPAUtil.getEntityManager();
         try {
@@ -71,7 +69,6 @@ public class ConsultationDAO {
         }
     }
 
-    // Les consultations d'un généraliste, filtrées par statut (Stream API)
     public List<Consultation> findByGeneralisteEtStatut(Utilisateur generaliste, StatutConsultation statut) {
         return findByGeneraliste(generaliste).stream()
                 .filter(c -> c.getStatut() == statut)
